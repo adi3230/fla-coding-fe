@@ -1,0 +1,4 @@
+/* Get width in percentages */
+@function percent($target, $container) {
+  @return calc($target / $container) * 100%;
+}

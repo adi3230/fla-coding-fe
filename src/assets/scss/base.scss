@@ -1,0 +1,58 @@
+.page-wrap {
+  margin: 0 auto;
+  position: relative;
+  // width: percent(345, 375); // future possible value according to layout
+  width: 92%; // current layout aligned to bootstrap grid due to header and footer
+
+  @include media-breakpoint-up(md) {
+    width: percent(1000, 1280);
+    max-width: 1000px;
+  }
+
+  // Potential new breakpoint for larger screens - in discussion with design as of April 2022
+  //@include media-breakpoint-up(lg) {
+  //  width: percent(1392, 1440);
+  //  max-width: 1392px;
+  //}
+
+  &--full-width-mobile {
+    @extend .page-wrap;
+    width: 100%;
+  }
+
+  .page-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+section {
+  padding: rem(30) 0;
+
+  @include media-breakpoint-up(md) {
+    padding: rem(35) 0;
+  }
+
+  .page-lillydoo & {
+    &:first-of-type {
+      padding: 0 0 rem(30) 0;
+
+      @include media-breakpoint-up(md) {
+        padding: 0 0 rem(35) 0;
+      }
+    }
+
+    &:last-of-type {
+      padding: rem(30) 0 0 0;
+
+      @include media-breakpoint-up(md) {
+        padding: rem(35) 0 0 0;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}

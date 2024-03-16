@@ -1,0 +1,4 @@
+@function clr($base, $shade: 500) {
+  $color: map-get(map-get($lld-colors, $base), $shade);
+  @return $color;
+}
