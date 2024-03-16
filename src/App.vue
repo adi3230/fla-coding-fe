@@ -47,6 +47,15 @@ const formatProductName = (name) => {
   return name.replace(/(Eau de Parfum|Eau de Toilette|Parfum)/g, '').trim()
 }
 
+const getWebpSrcset = (image) => {
+  return `${image}?f=webp`;
+};
+
+const getJpegSrcset = (image) => {
+  return `${image}?f=jpeg`;
+};
+
+
 </script>
 
 <template>
@@ -91,7 +100,11 @@ const formatProductName = (name) => {
             <transition-group name="product-list" tag="div" class="flaconi-perfume-products">
               <div class="flaconi-products__item" v-for="product in filteredProducts" :key="product.id">
                 <div class="flaconi-products__image-wrapper">
-                  <img :src="product.image" :alt="product.name">
+                  <picture>
+                    <source type="image/webp" :srcset="getWebpSrcset(product.image)">
+                    <source type="image/jpeg" :srcset="getJpegSrcset(product.image)">
+                    <img :src="product.image" :alt="product.name" class="flaconi-products__image" />
+                  </picture>
                 </div>
                 <div class="flaconi-products__info">
                   <h3 class="flaconi-products__brand">{{product.brand}}</h3>
@@ -168,10 +181,19 @@ const formatProductName = (name) => {
 
   .flaconi-products__image-wrapper{
     grid-area: image;
+    display: flex;
+    justify-content: center;
+  }
+
+  .flaconi-products__image {
+    height: auto;
+    width: 154px;
+    max-width: fit-content;
   }
 
   .flaconi-products__info {
     grid-area: info;
+    min-height: 9.5rem;
   }
 
   .flaconi-products__brand {
