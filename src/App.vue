@@ -80,16 +80,12 @@ const getJpegSrcset = (image) => {
         <div class="flaconi-list">
           <div class="flaconi-product__filter-options">
             <div class="flaconi-product__filter-brand">
-              <div>Selected Brand: {{ selectedBrand }}</div>
-
               <select v-model="selectedBrand" class="custom-select">
                 <option>Please select one</option>
                 <option v-for="(brand, key) in uniqueBrands" :key="key">{{brand}}</option>
               </select>
             </div>
             <div class="flaconi-product__filter-brand">
-              <div>Selected Type: {{ selectedType }}</div>
-
               <select v-model="selectedType">
                 <option>Please select one</option>
                 <option v-for="(type, key) in uniqueTypes" :key="key">{{type}}</option>
