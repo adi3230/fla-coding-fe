@@ -1,6 +1,7 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import ProductsService from "./services/products.service.js";
+import WordleBoard from "./components/WordleBoard.vue";
 
 const products = ref([]);
 const uniqueBrands = ref([]);
@@ -66,6 +67,9 @@ const getJpegSrcset = (image) => {
       <div class="flaconi-nav__item">Zertifizierter Händler</div>
       <div class="flaconi-nav__item">120 Tage Rückgaberecht</div>
       <div class="flaconi-nav__item">Geschenkgutschein</div>
+    </div>
+    <div>
+      <wordle-board :wordOfTheDay="TESTS"></wordle-board>
     </div>
     <div class="flaconi-header">
       <h1 class="flaconi-header__heading">
